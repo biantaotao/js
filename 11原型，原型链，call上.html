@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*1.原型定义：原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。
+    2.利用原型的特点和概念，可以提取共有属性
+    * */
+    // 1.Person.prototype={}  原型 空对象 函数出生时已经定义好  是祖先
+    Person.prototype.Lastname = "邓";
+    Person.prototype.say = function (){
+        console.log("哈哈哈");
+    }
+    function Person(name,age,sex){
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+     // delete person.name;   控制台删除对象属性
+    var person = new Person("xuming",'35','male');
+
+    //2.
+    Car.prototype.height = 1400;
+    Car.prototype.lang = 4900;
+    function Car(color,owner){
+        this.owner = owner;
+        this.color = color;
+    }
+    var car = new Car('red','prof.ji');
+
+    //3.精简版
+    Car.prototype = {
+        height:1400,
+        lang:4900,
+        carName:"BMW"
+    };
+    function Car(color){
+        this.color = color;
+    }
+    var car1 = new Car('red');
+
+    // 4.constructor  对象的构造函数
+    function Animal(){
+
+    }
+    var animal = new Animal();
+    //查看对象的构造函数  animal.constructor
+</script>
+</body>
+</html>

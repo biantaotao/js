@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var mrDeng = {
+        name :"Mr Deng",
+        age:30,
+        sex:'male',
+        health:100,
+        smoke:function (){
+          console.log("i am smoking");
+          mrDeng.health --;
+          return mrDeng.health;
+          //this.health --;第一人称，指代自己
+        },
+        drink:function(){
+            console.log("i am drink");
+            mrDeng.health ++;
+            //this.health ++;
+        },
+    }
+    //给对象增加属性,修改,查看
+       mrDeng.wife = "美女";
+       console.log(mrDeng);
+    //删除对象的属性
+    delete mrDeng.name;
+    console.log(mrDeng);
+    //打印对象中没有的属性，会显示undefined 而不是报错
+
+//2.
+    var deng = {
+        preparewife:"xiaowang",
+        name:"laodeng",
+        sex:"male",
+        girlfriend:"xiaoliu",
+        wife:"",
+        divorce:function () {
+         delete this.wife;
+         this.girlfriend = this.preparewife;
+        },
+        getMarried:function(){
+          this.wife = this.girlfriend;
+        },
+        changePrepareWife:function(someone){
+         this.girlfriend = someone;
+        }
+    }
+//3.对象的创建方法
+/*  1 var obj = {}  plainObject  对象字面量／对象直接量
+*   2 构造函数
+*      1）系统自带的构造函数 new Object()   Array() Number()
+*      2)自定义
+* */
+
+    var obj = new Object();
+    obj.name = 'abc';
+
+  //自定义构造函数  大驼峰式命名规则
+    function Car(color){
+      this.color = color;
+      this.name = 'BMW';
+      this.height = '1400';
+      this.lang = "4900";
+      this.weight = 1000;
+      this.health = 100;
+      this.run = function (){
+          console.log("dididid...");
+         return this.health --;
+      }
+    }
+    var car = new Car('red');
+    var car1 = new Car('green');
+    //car.name ="现代";
+   // car1.name = "大众"
+
+
+    function Student(name,age){
+
+        this.name = name;
+        this.age = age;
+        this.sex = 'male';
+
+    }
+    var student1 = new Student('小马','22');
+    var student2 = new Student();
+
+</script>
+</body>
+</html>

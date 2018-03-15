@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      /*执行期上下文：当函数执行时，会创建一个称为执行期上下文（AO,GO）的内部对象。一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对应的执行期上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行上下文，当函数执行完毕，它所产生的执行上下文被销毁。
+      查找变量：在哪个函数查找变量，就从该函数的作用域链的顶端依次向下查找
+      [[scope]]指的就是我们所说的作用域，其中存储了执行期上下文的集合
+      * */
+      function a(){
+          function b(){
+              var b = 234;
+              //a = 0;
+          }
+          var a = 123;
+          b();
+         // console.log(a);
+      }
+      var glob = 100;
+      a();
+      //a函数被定义 a.[[scope]]--->0:GO{}
+     //a函数执行：a.[[scope]]--->0:ao{}  顶端
+      //                        1:go{}
+      function a(){
+          function b(){
+              function c(){
+
+              }
+              c();
+          }
+          b();
+      }
+      a();
+      //进一步解释：只有里面的能访问外面的，外面的不能访问里面的
+      //b站在a的肩膀上看世界，a函数执行才有b的定义
+      /* a定义：a.[[scope]]--> 0:GO
+      *  a执行（作用域链）：a.[[scope]]-->0:aAO
+      *                                 1:GO
+      *
+      *  b定义：b.[[scope]]--> 0:aAO
+      *                       1:GO
+      *  b执行（作用域链）：b.[[scope]]-->0:bAO
+      *                                 1:aAO
+      *                                 2:GO
+      *
+      *   c定义：c.[[scope]]--->0:bAO
+      *                      1:aAO
+      *                      2:GO
+      *   c执行（作用域链）   c.[[scope]]-->0:cAO
+      *                                    1:bAO
+      *                                    2:aAO
+      *                                    3:GO
+      * */
+    </script>
+</body>
+</html>

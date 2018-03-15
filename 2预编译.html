@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    /*   js 的特点  1.预编译  2.解释性语言
+     *  js三步曲：
+     *  （1）语法分析（通篇扫描语法错误）
+     *  （2）预编译 1.函数声明，整体提升
+     *             2.变量 声明提升
+      * （3）解释执行
+      * */
+
+/*    函数声明，整体提升 */
+    test();
+   function test(){
+
+   }
+//等同于
+        function test(){
+
+        }
+        test();
+/*  变量  声明提升  */
+    document.write(a);
+    var a=123;
+// 等同于
+        var a;
+        document.write(a);
+        a=123;
+
+    </script>
+</body>
+</html>

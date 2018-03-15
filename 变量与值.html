@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+</style>
+<body>
+</body>
+<script>
+
+
+      var a = 10;
+      b = a;
+      a = 20;
+     /* document.write(a,b);*/
+
+      var arr = [1,2];
+      var arr1 = arr;
+      arr = [1,3];
+      arr.push(4);
+      /*document.write(arr,arr1);*/
+
+      /*  1.运算符＋
+         （1）加法运算和字符串链接
+         （2）任何数据类型加字符串都等于字符串
+          2. -   *   /   %
+         */
+      var s1 = "a" + "b";
+      var s2 = 1 + 1 + "a";   //2a
+      var s2 =  "a"+1 + 1
+      var s2 =  1 +1 + "a"+1 + 1 ;//2a11
+    /*  document.write(s2);*/
+
+      var b=10;
+     /* document.write(b++);   //10
+      document.write(b);   //11
+      document.write(++b);  //12*/
+
+
+    var a = 10;
+    var b = ++ a - 1 + a++;
+  /*  document.write(a+""+b);*/
+    var a=123;
+    var b=234;
+
+    var c=a;
+        a=b;
+        b=c;
+   // document.write("a="+a+"b="+b);
+
+    var num=1/0;   //infinity
+    var num=0/0;   //nan
+   // document.write(num);
+
+
+    var a=1;
+    var b=++a + 1;
+   // document.write(b);
+
+    var b=3;
+  //  document.write(b--);
+
+      var a=1;
+     // var b=a-- + --a;  //先算－－a
+      var b=--a + --a;
+    //document.write(b);
+
+    //字符串比较的ascii码大小
+     //特例：Nan==Nan  false
+     //document.write(Math.abs(1/3-(2-1)/3)<0.00001);
+
+     //逻辑运算符    &&  ｜｜   ！
+    var  a = 1 && 2 || 3;   //到假就停   2
+    var  b=0 || false || 1 ;  //到真就停   1
+    //document.write(b);
+      // var v=document.write(!1);
+  //var score=parseInt(window.prompt("input"));
+     /* if(score > 90 && score <= 100){
+        document.write('alibb');
+      }
+      else if(score > 80 && score <= 90){
+        document.write('tencent');
+      }
+      else if(score > 70 && score <= 80){
+       document.write('baidu');
+      }*/
+
+   /* 2>1 && document.write("成立");
+    if (2>1){
+        document.write("成立");
+    }*/
+
+/*
+    for(var i=0;i<10;i++){
+        document.write("a");
+    }
+*/
+/*
+    var i=10;
+    for(;i--;){   //到0停止
+       document.write(i+"");
+    }
+*/
+  //var  i=0;
+  /*for(;i<10;){
+      i++;
+      document.write(i);
+  }*/
+
+/* while(i<10){
+      document.write(i);
+     i++;
+ }*/
+/*
+    while(i<100){
+        if(i%7==0||i%10==7){
+            document.write(i+" ");
+        }
+        i++;
+   }
+*/
+//作业 1.打印出输入的三个数里最大的数字
+    /*var a=parseInt(window.prompt('a'));
+    var b=parseInt(window.prompt('b'));
+    var c=parseInt(window.prompt('c'));
+    var max=0;
+    if (a>b){
+       max=a;
+    }
+    if(b>c){
+        max=b;
+    }
+    if(a>c){
+        max=a;
+    }
+    document.write(max);
+    */
+
+    //2 三位数456 ，输出654
+
+    var a=456;
+    var ge=a%10;
+    var shi=parseInt(a%100/10);
+    var bai=parseInt(a/100);
+    document.write(ge*100+shi*10+bai);
+
+   //输入n,得到2的n次幂
+   var n=parseInt(window.prompt('n'));
+   var mul=1;
+    for(var i=0;i<n;i++){
+        mul*=2;
+    }
+    document.write(mul);
+
+
+</script>
+</html>

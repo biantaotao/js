@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* 1.写一个函数，功能是告知你所选定的小动物的脚声 */
+     function scream(animal){
+      switch (animal){
+          case "dog":
+              document.write("wang");
+          case "cat":
+              document.write("miao");
+          case "fish":
+              document.write("~o~o");
+              return;
+      }
+     }
+     scream("dog")
+
+    /* 2.定义一组函数，输入数字，逆转并输出汉字形式 */
+    function reverse(){
+        var num = window.prompt("input");
+        var str=" ";
+        for(var i=num.length-1;i >=0;i--){
+            str += transfer(num.charAt(i));  //str += num[i];
+        }
+        console.log(str);
+    }
+    function transfer(target){
+        switch (target){
+            case "1":
+                return "一";
+            case "2":
+                return "二";
+            case "3":
+                return "三";
+        }
+    }
+
+  /*  3.求n的阶乘 */
+  function jc(n){
+      if( n ==1 ){
+          return 1;
+      }
+      return n * jc(n-1);
+  }
+
+  /*  4.全局变量和局部变量  里面可以访问外面的  外面的不能访问里面的*/
+  var a = 123;
+  function test(){
+      var b = 234;
+      function inner(){
+          var c = 345;
+          document.write("a");
+          document.write("b");
+      }
+      inner();
+      document.write(c);  //不能访问c
+  }
+  test();
+  document.write(b); //不能访问b
+</script>
+</body>
+</html>

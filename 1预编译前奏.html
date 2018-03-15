@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*  预编译前奏：
+  1.imply global 暗示全局变量：即任何变量，如果变量未经声明就赋值，此变量就为全局对象所有
+*  eg:a = 123;
+*  eg:var a = b = 123;
+*  2.一切声明的全局变量，全是window的属性,window就是全局的域
+*  eg:var a=123;===>window.a=123;
+*     a=123;===>a=123;
+* */
+/*  var a = 123;*/
+/*  window{
+      a:123;
+}*/
+
+ function test(){
+     var a = b = 234; //b未经声明赋值 window.b 全局，a 局部变量
+ }
+ test()
+
+</script>
+</body>
+</html>

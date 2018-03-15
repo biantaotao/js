@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.运行test()和new test()的结果分别是什么
+     var a = 5;
+     function test(){
+         a = 0;
+         alert(a);
+         alert(this.a);
+         var a;
+         alert(a);
+     }
+   //2.
+     function employee(name,code){
+         this.name = 'wangli';  //参数写死 要实现可以传参 则为 this.name = name;
+         this.code = 'A001';
+     }
+     var newemp = new employee('zhangsan','a002');
+     console.log("雇员姓名："+ newemp.name);
+     console.log("雇员代号："+ newemp.code);
+    //3.
+    function Person(name,age,sex){
+        var a = 0;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        function sss(){
+            a ++ ;
+            console.log(a);
+        }
+        this.say = sss;  //闭包 对象增加一个新的方法
+    }
+    var oPerson = new Person();
+    oPerson.say();
+    oPerson.say();
+    var oPerson1 = new Person();
+    oPerson1.say();
+
+    //4.
+    var x = 1 ; y = z = 0;
+    function add(n){
+        return n = n + 1 ;
+    }
+    y = add (x);
+    console.log('y:' + y); // 4
+    function add(n){  // 覆盖上面的add()
+        return n = n + 3;  // 4
+    }
+    z = add(x);
+    console.log('z:' + z);// 4
+
+    //5.任意字符串输入求出每一位字节编码
+    /*var str = window.prompt('输入字符串');
+    for(var i = 0;i < str.length;i ++){
+        document.write(str.charCodeAt(i)+" ");
+
+    }*/
+
+//要求：当前字符位的 unicode > 255,那么该字符字节长度为2 <= 255 为1  中文符号占两个字节  英文符号占一个字节
+//1.第一种方法
+    var str = "adsfdrbvfbg 你好世界";
+    function bytesLength(str){
+        var count = str.length;
+       for(var i =0 ;i < str.length;i ++){
+           if(str.charCodeAt(i) > 255){
+               count ++;
+           }
+       }
+       return count;
+    }
+
+    var str ="hello world you are beautiful 你好世界";
+    function byteLen(str) {
+        var count = 0;
+      for(var i = 0;i < str.length; i++){
+          if(str.charCodeAt(i) > 255){
+              count += 2;
+          }
+          else{
+              count +=1;
+          }
+      }
+      return count;
+    }
+
+</script>
+</body>
+</html>

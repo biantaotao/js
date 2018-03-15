@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      //1.
+        a = 100;
+        function demo(e){
+            function e(){}
+            arguments[0] = 2;  //e:2
+            console.log(e);    //2
+            if(a){
+                var b = 123;
+                function c(){}  //if内不能申明function
+            }
+            var c;
+            a = 10;    //a:10
+            var a;
+            console.log(b);  //undefined
+            f = 123;
+            console.log(c);   //undefined
+            console.log(a);   //10
+        }
+        var a;
+ /*       AO{
+             e:undefined  1   function(){}
+             b:undefined
+             c:undefined  function(){}
+             a:undefined
+         }
+      */
+        demo(1);
+        console.log(a);    //100
+        console.log(f);    //123
+
+    /*    GO{
+             a:undefined 100
+             demo:function(){...}
+             f:123
+          }
+      */
+    //2.
+  var str = false + 1;
+  console.log(str);  //1
+  var demo = false == 1;
+  console.log(demo); //fasle
+  if(typeof (a) && -true + (+undefined) + " "){
+      console.log("基础扎实"); // "undefined" && "NAN"
+  }
+  if(11 + "11" * 2 == 33 ){
+      console.log("基础扎实");
+  }
+  !!" " + !!"" - !! false || console.log("你觉得能打印，你就是猪");
+  // 空格字符串" " true + false + false = 1
+
+    // 3.||的运算级高
+      (window.foo||(window.foo = "bar"));
+      console.log(window.foo);
+      /*
+      *
+      * */
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //针对初始化功能的函数，执行完函数立即释放
+    /*立即执行函数的写法：1.(function(){}());  w3c
+                        2.(function(){})();
+    *只有表达式才能被执行符号执行
+    * function test(){   函数声明
+    *   var a = 123;
+    * }()//不能被执行符号执行，因为它是函数声明
+    *
+    * var test = function (){
+    * }()函数表达式，可以被执行符号执行
+    * * */
+
+      var test = function (){  //在控制台输出test
+        console.log("a");
+      };
+     //表达式被执行，忽略表达式的引用，在控制台输出test undefined 已经被释放
+     var test = function (){
+         console.log('a');
+     }()
+
+    //1.
+//    (function (){
+//        var a = 123;
+//        var b = 234;
+//        console.log(a+b);
+//    }());
+//    //2.
+//    (function (a,b,c){
+//      var d = a + b + c;
+//    }(1,2,3));
+   //3.
+    var num = (function (a,b,c){
+      var d = a + b + c;
+      return d;
+    }(1,2,3));
+
+</script>
+</body>
+</html>

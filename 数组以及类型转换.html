@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    /*数组*/
+    var arr=[1,2,3,49,"abc","undefined"];
+    arr[0]='num1';
+    for( var i=0;i<arr.length;i++){
+        console.log(arr[i]);
+    }
+
+    //对象
+    var deng={
+        lastName:"deng",     //  属性名／属性值
+        age:40,
+        sex:undefined,
+        wife:"小刘",
+        father:"老邓",
+        son:"小邓",
+        handsome:false
+    }
+    console.log(deng.son);
+
+//typeof
+//    (六种数据类型：
+    // number string boolean object undefined function )
+//    null 的数据类型 object
+    var num=true;
+    console.log(typeof(num));
+
+//类型转换
+     var num=1 * "1";       //隐式类型转换
+     console.log(typeof(num)+":"+num);
+
+     var num=Number("123");   //显式转换  false
+     console.log(typeof (num));
+      var num=Number("A");   // unfined   转换为number  NAN
+
+       parseInt()   //1.转化为整型2.以目标数字为基底转化为十进制
+       var a="123ab45";
+       console.log(parseInt(a));
+       //parseFloat() //转化为浮点型
+      // String() //转化为字符串  undefined 不能用
+
+
+       var demo="123";
+       var dem1=demo.toString();
+
+       var num=1010101;
+       var text=parseInt(num,2);//二进制转化为十进制
+       console.log(text.toString(16)); //十进制转化为目标进制
+
+//      隐式类型转化
+     /*   1.isNaN() 内部隐式转化 NaN() */
+  console.log(isNaN("abc"));
+  console.log(isNaN(null));  // number(null)--->0
+  console.log(isNaN(undefined));   //number(undefined)-->NaN
+    /*  2.++/--  +/-(正负号) 内部隐式转化 Number（ ）*/
+    var a="123";
+    a++;
+    console.log(a);
+    /* 3.＋ ＋两边只要有字符串  就转化为字符串 string()*/
+     var b="a"+1;
+     console.log(typeof (b));
+
+    /* 4. － ＊ ／ ％  number()*/
+    /* 5.< > */
+    /* 6.unfined == null  true Nan==nan  false*/
+    /*7.==  !=  发生类型转换 */
+    //8.=== !== 不发生类型转换
+
+//    typeof (a)  返回字符串 undefined
+    alert(typeof(typeof(a)));
+
+</script>
+</html>

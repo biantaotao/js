@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子的阴影</title>
+</head>
+<style>
+ /* box-shadow属性语法 :offset-x offset-y blur spread color  position
+   offset-x:阴影水平方向的偏移 值为正数时，阴影在元素的右侧，值为负数时，阴影在元素的左侧
+   offset-y:阴影垂直方向的偏移  值为正数时，阴影在与元素的下侧
+   blur:阴影的模糊半径
+   spread:阴影的尺寸
+   position:
+
+ */
+ body{
+     background-color: #000;
+     }
+ .box {
+     width:50px;
+     height:50px;
+     border-radius: 100%;
+     background-color: #656e73;
+     margin-bottom: 50px;
+    }
+    .box1{
+        box-shadow:0 0 10px #000;
+    }
+    .box2{
+        box-shadow:0 0 20px yellow,0 0 20px #fff;
+    }
+</style>
+<body>
+   <!--单阴影-->
+   <div class="box1 box"></div>
+
+   <!--多重阴影-->
+   <div class="box2 box"></div>
+
+</body>
+</html>

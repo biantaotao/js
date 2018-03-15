@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* 函数预编译四部曲：
+      1.创建ao对象 activation object(执行期上下文)
+      2.按行参和变量声明，将变量和行参名作为AO属性名，值为undefined
+      3.将实参值和行参统一
+      4.在函数体里面找函数声明，值赋予函数体
+    *
+    * */
+
+    /*  第一个练习  */
+     function fn(a){
+         console.log(a);  //function a(){}
+         var a=123;      //var 已经提升 a:123;
+         console.log(a);  //123
+         function a(){}   //已经提升
+         console.log(a);  //123
+         var b=function(){}  //var 已经提升 b:function （）｛｝
+         console.log(b);    //function (){}
+         function d(){}     //已经提升
+     }
+     fn(1);
+
+     /* 预编译：
+      ao:{
+         a:undefined 1 function a(){},
+         b:undefined,
+         d:function d(){}
+     }
+     */
+    /*  第二️个练习  */
+     function test(a,b){
+         console.log(a);  // 1
+         c = 0;         //   c:0
+         var c;        //
+         a = 3;       //    a:3
+         b = 2;       //    b:2
+         console.log(b);  //   2
+         function b(){}   //
+         function d(){}   //
+         console.log(b);   //    2
+     }
+      test(1);
+     /*  预编译：
+     ao:{
+       a:1
+       b:function(){}
+       c:undefined
+       d:function(){}
+     }
+     *
+     * */
+
+    /*  第3个练习  */
+     function tect(a,b){
+         console.log(a);  //function a(){}
+         console.log(b);  //undefined
+         var b = 234;   // b:234
+         console.log(b);  //234
+         a = 123;       //a:123
+         console.log(a);  //123
+         function a(){}   //
+         var a;
+         b = 234;       //b:234
+         var b = function (){ }  //b:function(){}
+         console.log(a);    //123
+         console.log(b);     //function(){}
+     }
+     tect(1);
+     /* 预编译：
+       ao:{
+        a:function a(){}
+        b:undefined
+       }
+     * */
+    /*  第4个练习  */
+     function test(){
+         var a = b = 123;
+     }
+     test();
+     console.log(window.a);
+     console.log(window.b);
+
+    /*  全局的预编译过程，生成一个global object，全局要执行的前一刻
+    * */
+    var a = 123;
+    function a(){}
+    console.log(a);   //123
+   /* GO{
+        a:function(){}
+    }*/
+
+    /*  第5️个练习  */
+    console.log(test);   //function (){ .... }
+    function test(test){
+        console.log(test);   //function (){}
+        var test = 234;       //test:234
+        console.log(test);    //234
+        function test(){}
+    }
+  /*  AO{
+        test:undefined  1   function (){}
+
+    }*/
+    test(1);
+    var test = 123;
+/*
+*   GO{
+*       test:undefined   function(){...}
+*   }
+* */
+
+    /*  第6️个练习  */
+
+    var global = 100;
+    function fn(){
+        console.log(global);  //100
+    }
+    fn();
+ /*   GO{
+        global:undefined 100
+        fn:function (){}
+    }*/
+
+
+    /*  第7️个练习  */
+
+    global = 100;
+    function fn(){
+        console.log(global);    //undefined  找自己的global
+        global = 200;
+        console.log(global);   //200
+        var global = 300;
+    }
+//    AO{
+//       global:undefined
+
+//    }
+    fn();
+    var global;
+ /*   GO{
+       global:undefined  100
+        fn:function(){...}
+    }*/
+
+
+     //  第8个练习
+    function test(){
+        console.log(b);   //undefined
+        if(a){          //a是undefined,所以var b 不走
+            var b = 100;
+        }
+        console.log(b);   //undefined
+        c = 234;    //放进 GO里
+         console.log(c);  //234
+    }
+    var a;
+//    AO{
+//      b:undefined
+//    }
+    test();
+    a = 10;  // a=10
+    console.log(c);
+//    GO{
+//       a:undefined
+//     test:function(){...}
+//    c:234
+//    }
+</script>
+</body>
+</html>

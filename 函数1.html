@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <h4>函数：高内聚  弱偶合</h4>
+</body>
+ <p>定义函数的基本形式：function 函数就是另一种类型的变量</p>
+ <p>函数名的命名：小驼峰 例如：theFirstName</p>
+ <p>
+       函数声明：
+       1.function test(){}
+       2.命名函数表达式：var test=function abc(){}   写abc没有作用  test.name=abc
+       3.匿名函数表达式：var test=function(){}
+   </p>
+<script>
+ /* var test=function(){
+      document.write("a");
+  }
+  test();*/
+     function test(a,b) {   //相当于在函数中 var a   var b   行参
+        document.write(a+b);
+     }
+     test(1,2);    //实参
+
+   /* function showFirst(msg){
+       alert("FirstName：" + msg)
+    }
+     showFirst("边");*/
+
+    function sum(a,b){
+    /*  arguments--[11,2,3]  实参列表*/
+        console.log(arguments);
+        for(var i=0;i<arguments.length;i++){
+        console.log(arguments[i]);
+        }
+     /*  sum.length 行参长度*/
+     console.log("行参长度" +sum.length);
+
+    /* if(sum.length>arguments.length){
+         console.log("行参多了")
+     }else if(sum.length<arguments.length){
+         console.log("实参多了")
+     }else{
+         console.log("相等")
+     }*/
+    var result=0;
+    for(var i=0;i<arguments.length;i++){
+        result+=arguments[i];
+    }
+    console.log("总和为"+result);
+
+  /* 1.映射关系     */
+/*   a=3;
+   arguments[0]=5;
+   console.log(a);*/
+   /* 2. 实参sum(1)  行参sum(a,b) */
+     b=2;
+     console.log(arguments[1]);   //undefined
+/*     return 返回值   终止函数   */
+
+    }
+    sum(11);
+</script>
+</html>

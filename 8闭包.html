@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function test(){
+        var arr = [];
+        for (var i = 0;i < 10;i ++){
+       //   arr[i] = 函数  定义的时候不看函数体 执行的时候才看函数体
+            /* 1.
+               arr[i] = function (){
+                document.write(i + " ");
+       //输出的i（始终是个变量，等到函数的执行结果保存到外部之后才找i的值）和arr[i]没有关系
+            }*/
+
+         // 2.立即执行函数
+           (function(j){
+                //第一圈：i＝0,j=0;里边的就是此次立即执行函数的j 第二圈 j=1,i=1
+               arr[j] = function(){
+                   document.write(j+ " ");
+               }
+            }(i))
+          //相当于10个立即执行函数
+         /*  (function(0){
+               arr[0]=function(){
+                 document.write(j + " ");
+               }
+           }(0))
+           */
+        }
+        return arr;   //函数体保存到外部
+    }
+    var myArr = test();
+   // myArr[0]();
+    for( var j = 0;j < 10;j ++){
+        myArr[j]();//执行的时候回头找i的值，这时已经变为10
+    }
+   // myArr[0]()   testAO的i已经变为10
+
+    for(var i = 0;i< 10;i ++){
+        (function(){
+            document.write("a");
+        }())
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<style>
+    .box{
+        width:0;
+        height:0;
+        border-left:100px solid transparent;
+        border-right:100px solid transparent;
+        border-bottom: 100px solid #dcdcdc;
+        border-top:100px solid #dcdcdc ;
+    }
+    .img-box{
+        overflow: hidden;
+    }
+    .img01{
+        width:100px;
+        height:80px;
+        float: left;
+    }
+    .img01 .m2{
+        display: none;
+    }
+     .img01:hover .m1{
+       display: none;
+     }
+    .img01:hover .m2{
+        display:block;
+    }
+    .down{
+        display: block;
+        transition:all 1s linear .3s;
+        -webkit-transition: all 1s linear .3s;
+        -moz-transition: all 1s linear .3s;
+        opacity: 0;
+    }
+    .hov a:hover+.down{
+        display: block;
+        opacity: 1;
+    }
+    .color{
+        color:red;
+    }
+</style>
+<body>
+   <div class="box">
+   </div>
+   <div class="img-box">
+        <div class="img01" style="position: relative;">
+            <img src="image/footer_1.png" alt="" class="m1"
+                 style="position: absolute">
+            <img src="image/footer_01.png" alt="" class="m2" style="position: absolute">
+        </div>
+        <div class="img01" style="position: relative;">
+            <img src="image/footer_2.png" alt="" class="m1"
+                 style="position: absolute">
+            <img src="image/footer_02.png" alt="" class="m2" style="position: absolute">
+        </div>
+        <div class="img01" style="position: relative;">
+            <img src="image/footer_3.png" alt="" class="m1"
+                 style="position: absolute">
+            <img src="image/footer_03.png" alt="" class="m2" style="position: absolute">
+        </div>
+   </div>
+    <div class="hov">
+        <a href="">鼠标放上去显示子菜单</a>
+        <div class="down">
+            <ul>
+                <li>11111</li>
+                <li>3333</li>
+                <li>4444</li>
+            </ul>
+        </div>
+    </div>
+<button>button</button>
+</body>
+<!--<script>
+   var a=10+"20";
+   alert(a);
+</script>-->
+<script>
+    $(function(){
+        $("button").toggle(
+            function () {
+                $(this).addClass("color");
+            },
+            function () {
+                $(this).removeClass("color");
+            }
+        );
+    })
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            background-color: transparent;
+            border:none;
+            padding: 3px 5px;
+            color:#fff;
+        }
+        button:nth-child(1){
+            background-color: #00CCFF;
+        }
+        button:nth-child(2){
+          background-color:bisque;
+        }
+        button:nth-child(3){
+            background-color: chartreuse;
+        }
+        button:nth-child(4){
+            background-color: darkseagreen;
+        }
+        button:nth-child(5){
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+        <!-- 方法1 无参数-->
+        <button class="btn" onclick="fun1()">点击11</button>
+
+        <!-- 有参数-->
+        <button class="btn" onclick="fun01('边')">点击11（有参函数）</button>
+
+        <!--  方法2  带有返回值-->
+        <button class="btn">点击22</button>
+        <p class="fun1-p" style="display: none">点击按钮1触发的事件</p>
+        <p id="ad"></p>
+
+    <script>
+ //    1
+   function fun1() {
+      var p1=document.getElementsByClassName("fun1-p")[0];
+      p1.style.display="block";
+   }
+
+   function fun01(name){
+       alert("welcome:"+name)
+   }
+ /*  2 */
+    function add(a,b){
+        return a*b;
+    }
+    document.getElementById("ad").innerHTML=add(4,3);
+ /* 3 */
+   </script>
+</body>
+</html>
